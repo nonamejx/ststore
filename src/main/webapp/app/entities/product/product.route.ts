@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
 import { UserRouteAccessService } from 'app/core';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Product } from 'app/shared/model/product.model';
 import { ProductService } from './product.service';
 import { ProductComponent } from './product.component';
@@ -18,9 +19,9 @@ export class ProductResolve implements Resolve<IProduct> {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
-            return this.service.find(id).map((product: HttpResponse<Product>) => product.body);
+            return this.service.find(id).pipe(map((product: HttpResponse<Product>) => product.body));
         }
-        return Observable.of(new Product());
+        return of(new Product());
     }
 }
 
