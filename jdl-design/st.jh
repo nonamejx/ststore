@@ -1,0 +1,49 @@
+entity Product {
+	id Long required 
+	productName String required
+    capitalPrice BigDecimal required
+    salePrice BigDecimal required
+    productDescription String
+}
+
+entity ImageAttribute {
+	id Long required
+    imageLink String required
+}
+
+entity Unit {
+	id Long required
+    unitName String required
+}
+
+entity Category {
+	id Long required
+    categoryName String required
+}
+
+entity PriceBook {
+	id Long required
+    priceBookName String required
+    createdDate LocalDate required
+}
+
+entity PriceBookItem {
+	id Long required
+    newPrice BigDecimal required
+}
+
+relationship OneToMany {
+	Category{product(productName)} to Product{category(categoryName)},
+    Category{child(categoryName)} to Category{father(categoryName)},
+    Unit{product(productName)} to Product{unit(unitName)},
+    Product to ImageAttribute{product(productName)}
+}
+
+relationship ManyToOne {
+	PriceBookItem{product(productName)} to Product,
+    PriceBookItem{priceBook(priceBookName)} to PriceBook
+}
+
+dto * with mapstruct
+
+service all with serviceImpl

@@ -1,0 +1,24 @@
+
+{
+    "ststoreApp": {
+        "imageAttribute" : {
+            "home": {
+                "title": "Image Attributes",
+                "createLabel": "Create a new Image Attribute",
+                "createOrEditLabel": "Create or edit a Image Attribute",
+                "search": "Search for Image Attribute"
+            },
+            "created": "A new Image Attribute is created with identifier {{ param }}",
+            "updated": "A Image Attribute is updated with identifier {{ param }}",
+            "deleted": "A Image Attribute is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Image Attribute {{ id }}?"
+            },
+            "detail": {
+                "title": "Image Attribute"
+            },
+            "imageLink": "Image Link",
+            "product": "Product"
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="imageAttribute">
+            <h2><span jhiTranslate="ststoreApp.imageAttribute.detail.title">Image Attribute</span> {{imageAttribute.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ststoreApp.imageAttribute.imageLink">Image Link</span></dt>
+                <dd>
+                    <span>{{imageAttribute.imageLink}}</span>
+                </dd>
+                <dt><span jhiTranslate="ststoreApp.imageAttribute.product">Product</span></dt>
+                <dd>
+                    <div *ngIf="imageAttribute.productId">
+                        <a [routerLink]="['/product', imageAttribute.productId, 'view']">{{imageAttribute.productProductName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/image-attribute', imageAttribute.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

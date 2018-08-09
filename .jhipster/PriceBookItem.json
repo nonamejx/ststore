@@ -1,0 +1,35 @@
+{
+    "name": "PriceBookItem",
+    "fields": [
+        {
+            "fieldName": "newPrice",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "otherEntityField": "productName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "priceBook",
+            "otherEntityName": "priceBook",
+            "otherEntityField": "priceBookName"
+        }
+    ],
+    "changelogDate": "20180809095353",
+    "entityTableName": "price_book_item",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,24 @@
+
+{
+    "ststoreApp": {
+        "priceBook" : {
+            "home": {
+                "title": "Price Books",
+                "createLabel": "Create a new Price Book",
+                "createOrEditLabel": "Create or edit a Price Book",
+                "search": "Search for Price Book"
+            },
+            "created": "A new Price Book is created with identifier {{ param }}",
+            "updated": "A Price Book is updated with identifier {{ param }}",
+            "deleted": "A Price Book is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Price Book {{ id }}?"
+            },
+            "detail": {
+                "title": "Price Book"
+            },
+            "priceBookName": "Price Book Name",
+            "createdDate": "Created Date"
+        }
+    }
+}
