@@ -1,0 +1,25 @@
+
+{
+    "ststoreApp": {
+        "priceBookItem" : {
+            "home": {
+                "title": "Price Book Items",
+                "createLabel": "Thêm mới một Price Book Item",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Price Book Item",
+                "search": "Tìm Price Book Item"
+            },
+            "created": "Một Price Book Item mới được tạo với định danh {{ param }}",
+            "updated": "Một Price Book Item cập nhật với định danh {{ param }}",
+            "deleted": "Một Price Book Item đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Price Book Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Price Book Item"
+            },
+            "newPrice": "New Price",
+            "product": "Product",
+            "priceBook": "Price Book"
+        }
+    }
+}

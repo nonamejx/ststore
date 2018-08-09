@@ -1,0 +1,29 @@
+
+{
+    "ststoreApp": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Thêm mới một Product",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Product",
+                "search": "Tìm Product"
+            },
+            "created": "Một Product mới được tạo với định danh {{ param }}",
+            "updated": "Một Product cập nhật với định danh {{ param }}",
+            "deleted": "Một Product đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "productName": "Product Name",
+            "capitalPrice": "Capital Price",
+            "salePrice": "Sale Price",
+            "productDescription": "Product Description",
+            "imageAttribute": "Image Attribute",
+            "category": "Category",
+            "unit": "Unit"
+        }
+    }
+}

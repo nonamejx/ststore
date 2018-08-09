@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="priceBook">
+            <h2><span jhiTranslate="ststoreApp.priceBook.detail.title">Price Book</span> {{priceBook.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ststoreApp.priceBook.priceBookName">Price Book Name</span></dt>
+                <dd>
+                    <span>{{priceBook.priceBookName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ststoreApp.priceBook.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{priceBook.createdDate}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/price-book', priceBook.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
