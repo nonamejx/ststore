@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
 import { UserRouteAccessService } from 'app/core';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Category } from 'app/shared/model/category.model';
 import { CategoryService } from './category.service';
 import { CategoryComponent } from './category.component';
@@ -18,9 +19,9 @@ export class CategoryResolve implements Resolve<ICategory> {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
-            return this.service.find(id).map((category: HttpResponse<Category>) => category.body);
+            return this.service.find(id).pipe(map((category: HttpResponse<Category>) => category.body));
         }
-        return Observable.of(new Category());
+        return of(new Category());
     }
 }
 

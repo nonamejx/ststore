@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
 import { UserRouteAccessService } from 'app/core';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Unit } from 'app/shared/model/unit.model';
 import { UnitService } from './unit.service';
 import { UnitComponent } from './unit.component';
@@ -18,9 +19,9 @@ export class UnitResolve implements Resolve<IUnit> {
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const id = route.params['id'] ? route.params['id'] : null;
         if (id) {
-            return this.service.find(id).map((unit: HttpResponse<Unit>) => unit.body);
+            return this.service.find(id).pipe(map((unit: HttpResponse<Unit>) => unit.body));
         }
-        return Observable.of(new Unit());
+        return of(new Unit());
     }
 }
 

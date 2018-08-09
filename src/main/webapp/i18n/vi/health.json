@@ -11,6 +11,10 @@
             "error": "Lỗi"
         },
         "indicator": {
+            "discoveryComposite": "Thành phần tìm kiếm dịch vụ",
+            "refreshScope": "Phạm vị làm mới Microservice",
+            "configServer": "Trung tâm cấu hình Microservice",
+            "hystrix": "Hystrix",
             "diskSpace": "Dung lượng trống",
             "mail": "Email",
             "elasticsearch": "Elasticsearch",
@@ -21,6 +25,7 @@
             "status": "Trạng thái"
         },
         "status": {
+            "UNKNOWN": "UNKNOWN",
             "UP": "Đang hoạt động",
             "DOWN": "Đã tắt"
         }
