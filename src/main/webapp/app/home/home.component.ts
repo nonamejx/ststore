@@ -91,13 +91,23 @@ export class HomeComponent implements OnInit {
             this.filteredProducts = this.originalProducts.filter(p => p.categoryId === this.selectedCategory.id);
         }
         if (this.searchKey && this.searchKey.trim().length > 0) {
-            this.filteredProducts = this.filteredProducts.filter(
-                p =>
+            this.filteredProducts = this.filteredProducts.filter(p => {
+                this.searchKey = this.searchKey.toLowerCase();
+                return (
+                    p.id
+                        .toString()
+                        .trim()
+                        .indexOf(this.searchKey) > -1 ||
                     p.productName
                         .trim()
                         .toLowerCase()
-                        .indexOf(this.searchKey.toLowerCase()) > -1
-            );
+                        .indexOf(this.searchKey) > -1 ||
+                    p.unitUnitName
+                        .trim()
+                        .toLowerCase()
+                        .indexOf(this.searchKey) > -1
+                );
+            });
         }
     }
 
