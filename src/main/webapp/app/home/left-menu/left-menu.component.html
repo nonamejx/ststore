@@ -1,0 +1,6 @@
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action" [class.active]="selectedCategory === null" (click)="clearSearch()">Tất cả</a>
+    <a href="#" *ngFor="let category of orderedCategories" (click)="onSelectCategory(category)"
+       [class.active]="category === selectedCategory"
+       class="list-group-item list-group-item-action">{{ category?.categoryName }}</a>
+</div>

@@ -8,6 +8,7 @@ export interface ICategory {
     children?: ICategory[];
     fatherCategoryName?: string;
     fatherId?: number;
+    level?: number;
 }
 
 export class Category implements ICategory {

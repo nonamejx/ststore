@@ -1,0 +1,18 @@
+<div class="row no-gutters">
+    <div class="col">
+        <input class="form-control border-secondary border-right-0 rounded-0" type="text"
+               placeholder="Search"
+               [(ngModel)]="currentSearchKey"
+               (keyup)="onSearch()"/>
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button"
+                (click)="clearSearch()">X
+        </button>
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button"
+                (click)="onSearch()">Tìm kiếm
+        </button>
+    </div>
+</div>

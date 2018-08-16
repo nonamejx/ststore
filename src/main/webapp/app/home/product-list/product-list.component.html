@@ -1,0 +1,16 @@
+<table class="table table-hover product-list-table">
+    <thead>
+    <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Unit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+        <td>{{ product?.productName }}</td>
+        <td>{{ product?.salePrice }}</td>
+        <td>{{ product?.unitUnitName }}</td>
+    </tr>
+    </tbody>
+</table>

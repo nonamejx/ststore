@@ -1,30 +1,32 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
 import { StstoreSharedModule } from 'app/shared';
-/* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
-
+import { StstoreElasticsearchReindexModule } from './elasticsearch-reindex/elasticsearch-reindex.module';
 import {
     adminState,
     AuditsComponent,
-    UserMgmtComponent,
-    UserMgmtDetailComponent,
-    UserMgmtUpdateComponent,
-    UserMgmtDeleteDialogComponent,
-    LogsComponent,
-    JhiMetricsMonitoringModalComponent,
-    JhiMetricsMonitoringComponent,
-    JhiHealthModalComponent,
-    JhiHealthCheckComponent,
     JhiConfigurationComponent,
-    JhiDocsComponent
+    JhiDocsComponent,
+    JhiHealthCheckComponent,
+    JhiHealthModalComponent,
+    JhiMetricsMonitoringComponent,
+    JhiMetricsMonitoringModalComponent,
+    LogsComponent,
+    UserMgmtComponent,
+    UserMgmtDeleteDialogComponent,
+    UserMgmtDetailComponent,
+    UserMgmtUpdateComponent
 } from './';
+
+/* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
 
 @NgModule({
     imports: [
         StstoreSharedModule,
-        RouterModule.forChild(adminState)
+        RouterModule.forChild(adminState),
+        StstoreElasticsearchReindexModule
         /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
     ],
     declarations: [
