@@ -9,7 +9,7 @@
     <tbody>
     <tr *ngFor="let product of products">
         <td>{{ product?.productName }}</td>
-        <td>{{ product?.salePrice }}</td>
+        <td>{{ product?.salePrice | currency:'VND' }}</td>
         <td>{{ product?.unitUnitName }}</td>
     </tr>
     </tbody>
