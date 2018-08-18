@@ -1,0 +1,27 @@
+<table class="table table-hover product-list-table">
+    <thead>
+    <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Old Price</th>
+        <th scope="col">New Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+        <td>{{ product?.id }}</td>
+        <td>{{ product?.productName }}</td>
+        <td>{{ product?.unitUnitName }}</td>
+        <td>{{ product?.salePrice | currency:'VND' }}</td>
+        <td>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="New Price" aria-describedby="button-addon4" #reference>
+                <div class="input-group-append" id="button-addon4">
+                    <button class="btn btn-outline-secondary" (click)="reference.value=''" type="button">X</button>
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>

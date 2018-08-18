@@ -1,3 +1,7 @@
-<p>
-  price-book-list works!
-</p>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action" (click)="onSelectPriceBook(null)"
+       [class.active]="selectedPriceBook === null">General Price Book</li>
+    <li class="list-group-item list-group-item-action" *ngFor="let priceBook of priceBooks"
+       [class.active]="priceBook === selectedPriceBook"
+       (click)="onSelectPriceBook(priceBook)">{{priceBook.priceBookName}}</li>
+</ul>

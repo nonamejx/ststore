@@ -1,3 +1,9 @@
-<p>
-  price-setting works!
-</p>
+<div class="row">
+    <div class="col-md-3">
+        <jhi-price-book-list (priceBookChange)="onSelectPriceBook($event)"></jhi-price-book-list>
+    </div>
+    <div class="col-md-9">
+        <span>{{selectedPriceBook?.priceBookName}}</span>
+        <jhi-price-book-update-table [products]="originalProducts"></jhi-price-book-update-table>
+    </div>
+</div>
