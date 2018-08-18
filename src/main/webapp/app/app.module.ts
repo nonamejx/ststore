@@ -1,9 +1,9 @@
 import './vendor.ts';
 
-import { NgModule, Injector } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Ng2Webstorage, LocalStorageService, SessionStorageService } from 'ngx-webstorage';
+import { LocalStorageService, Ng2Webstorage, SessionStorageService } from 'ngx-webstorage';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
@@ -13,11 +13,12 @@ import { NotificationInterceptor } from './blocks/interceptor/notification.inter
 import { StstoreSharedModule } from 'app/shared';
 import { StstoreCoreModule } from 'app/core';
 import { StstoreAppRoutingModule } from './app-routing.module';
-import { StstoreHomeModule } from './home/home.module';
+import { StstoreHomeModule } from 'app/home';
 import { StstoreAccountModule } from './account/account.module';
 import { StstoreEntityModule } from './entities/entity.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { ActiveMenuDirective, ErrorComponent, FooterComponent, JhiMainComponent, NavbarComponent, PageRibbonComponent } from './layouts';
+import { PriceSettingModule } from 'app/price-setting';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         StstoreCoreModule,
         StstoreHomeModule,
         StstoreAccountModule,
-        StstoreEntityModule
+        StstoreEntityModule,
+        PriceSettingModule
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
