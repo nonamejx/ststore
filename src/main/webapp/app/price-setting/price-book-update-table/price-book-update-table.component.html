@@ -16,7 +16,12 @@
         <td>{{ product?.salePrice | currency:'VND' }}</td>
         <td>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="New Price" aria-describedby="button-addon4" #reference>
+                <input type="number" class="form-control" placeholder="New Price"
+                       [value]="product.salePrice"
+                       aria-describedby="button-addon4"
+                       #reference
+                       (change)="updateNewPrice(reference.value, product)"
+                       (keypress)="numberOnly($event, reference.value)">
                 <div class="input-group-append" id="button-addon4">
                     <button class="btn btn-outline-secondary" (click)="reference.value=''" type="button">X</button>
                 </div>

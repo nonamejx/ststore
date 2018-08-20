@@ -19,11 +19,20 @@ import { StstoreEntityModule } from './entities/entity.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { ActiveMenuDirective, ErrorComponent, FooterComponent, JhiMainComponent, NavbarComponent, PageRibbonComponent } from './layouts';
 import { PriceSettingModule } from 'app/price-setting';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     imports: [
         BrowserModule,
         StstoreAppRoutingModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+            timeOut: 2000,
+            positionClass: 'toast-bottom-left',
+            preventDuplicates: false,
+            progressAnimation: 'decreasing'
+        }),
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
         StstoreSharedModule,
         StstoreCoreModule,

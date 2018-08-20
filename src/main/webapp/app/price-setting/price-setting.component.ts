@@ -50,7 +50,6 @@ export class PriceSettingComponent implements OnInit {
 
     onSelectPriceBook(priceBook: IPriceBook): void {
         this.selectedPriceBook = priceBook;
-        console.log(this.selectedPriceBook.priceBookName);
     }
 
     private onError(errorMessage: string) {
