@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { IProduct } from 'app/shared/model/product.model';
 import { ProductService } from 'app/entities/product';
 import { Observable } from 'rxjs/Rx';
@@ -10,8 +10,10 @@ import { ToastrService } from 'ngx-toastr';
     templateUrl: './price-book-update-table.component.html',
     styles: []
 })
-export class PriceBookUpdateTableComponent implements OnInit {
+export class PriceBookUpdateTableComponent implements OnInit, OnChanges {
     @Input() products: IProduct[];
+    filteredProducts: IProduct[];
+    currentSearchKey: string;
 
     constructor(private productService: ProductService, private toast: ToastrService) {}
 
@@ -26,9 +28,43 @@ export class PriceBookUpdateTableComponent implements OnInit {
         }
     }
 
-    numberOnly(event, value): boolean {
+    numberOnly(event): boolean {
         const charCode = event.which ? event.which : event.keyCode;
-        return !(charCode > 31 && (charCode < 48 || charCode > 57)) && value.length <= 7;
+        return !(charCode > 31 && (charCode < 48 || charCode > 57));
+    }
+
+    ngOnChanges() {
+        if (this.products) {
+            this.filteredProducts = this.cloneProducts(this.products);
+        }
+    }
+
+    onSearch(): void {
+        this.filteredProducts = this.cloneProducts(this.products);
+        if (this.currentSearchKey && this.currentSearchKey.length > 0) {
+            const searchKey = this.currentSearchKey.trim().toLowerCase();
+            this.filteredProducts = this.filteredProducts.filter(p => {
+                return (
+                    p.id
+                        .toString()
+                        .trim()
+                        .indexOf(searchKey) > -1 ||
+                    p.productName
+                        .trim()
+                        .toLowerCase()
+                        .indexOf(searchKey) > -1 ||
+                    p.unitUnitName
+                        .trim()
+                        .toLowerCase()
+                        .indexOf(searchKey) > -1
+                );
+            });
+        }
+    }
+
+    onClearSearch(): void {
+        this.currentSearchKey = '';
+        this.filteredProducts = this.cloneProducts(this.products);
     }
 
     private subscribeToSaveResponse(result: Observable<HttpResponse<IProduct>>) {
@@ -44,5 +80,9 @@ export class PriceBookUpdateTableComponent implements OnInit {
 
     private onSaveError(message: any) {
         this.toast.error(message, 'Update New Price');
+    }
+
+    private cloneProducts(products: IProduct[]): IProduct[] {
+        return Object.assign([], products);
     }
 }

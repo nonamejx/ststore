@@ -91,8 +91,8 @@ export class HomeComponent implements OnInit {
             this.filteredProducts = this.originalProducts.filter(p => p.categoryId === this.selectedCategory.id);
         }
         if (this.searchKey && this.searchKey.trim().length > 0) {
+            this.searchKey = this.searchKey.toLowerCase();
             this.filteredProducts = this.filteredProducts.filter(p => {
-                this.searchKey = this.searchKey.toLowerCase();
                 return (
                     p.id
                         .toString()

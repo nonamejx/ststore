@@ -1,3 +1,20 @@
+<div class="row no-gutters">
+    <div class="col">
+        <input class="form-control border-secondary border-right-0 rounded-0" type="text"
+               placeholder="Search"
+               [(ngModel)]="currentSearchKey"
+               (keyup)="onSearch()"/>
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button"
+                (click)="onClearSearch()">X
+        </button>
+    </div>
+    <div class="col-auto">
+        <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button">Tìm kiếm</button>
+    </div>
+</div>
+
 <table class="table table-hover product-list-table">
     <thead>
     <tr>
@@ -9,7 +26,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of filteredProducts">
         <td>{{ product?.id }}</td>
         <td>{{ product?.productName }}</td>
         <td>{{ product?.unitUnitName }}</td>
@@ -21,7 +38,7 @@
                        aria-describedby="button-addon4"
                        #reference
                        (change)="updateNewPrice(reference.value, product)"
-                       (keypress)="numberOnly($event, reference.value)">
+                       (keypress)="numberOnly($event)">
                 <div class="input-group-append" id="button-addon4">
                     <button class="btn btn-outline-secondary" (click)="reference.value=''" type="button">X</button>
                 </div>
