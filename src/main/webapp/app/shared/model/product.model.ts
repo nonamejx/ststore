@@ -3,6 +3,7 @@ import { IImageAttribute } from 'app/shared/model//image-attribute.model';
 export interface IProduct {
     id?: number;
     productName?: string;
+    productNameSearchable?: string;
     capitalPrice?: number;
     salePrice?: number;
     productDescription?: string;
@@ -17,6 +18,7 @@ export class Product implements IProduct {
     constructor(
         public id?: number,
         public productName?: string,
+        public productNameSearchable?: string,
         public capitalPrice?: number,
         public salePrice?: number,
         public productDescription?: string,
